@@ -23,12 +23,12 @@ const LoadingIndicator = ({
     <div className={cn("flex flex-col items-center justify-center gap-3", className)}>
       <div
         className={cn(
-          "rounded-full border-primary/30 border-t-primary animate-spin", 
+          "rounded-full border-blue-300/30 border-t-blue-500 animate-spin", 
           sizeClasses[size]
         )}
       />
       {text && (
-        <p className="text-sm text-muted-foreground animate-pulse-opacity">{text}</p>
+        <p className="text-sm text-blue-600/70 dark:text-blue-400/80 animate-pulse-opacity">{text}</p>
       )}
     </div>
   );
