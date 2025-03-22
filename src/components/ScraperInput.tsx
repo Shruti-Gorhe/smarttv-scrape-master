@@ -52,38 +52,42 @@ const ScraperInput = ({ onSubmit, isLoading, className }: ScraperInputProps) => 
     <form 
       onSubmit={handleSubmit} 
       className={cn(
-        "w-full max-w-3xl mx-auto bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 p-6 rounded-xl shadow-md shadow-blue-200/50 dark:shadow-blue-900/20 animate-fade-in", 
+        "w-full max-w-3xl mx-auto glass rounded-xl shadow-lg shadow-blue-200/50 dark:shadow-blue-900/20 animate-fade-in border border-white/40 dark:border-white/5", 
         className
       )}
     >
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <h2 className="text-xl font-medium text-blue-800 dark:text-blue-300">Amazon Smart TV Scraper</h2>
-          <p className="text-sm text-blue-600/70 dark:text-blue-400/80">
-            Enter an Amazon India Smart TV product URL to extract detailed information
-          </p>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Input
-            type="url"
-            placeholder="https://www.amazon.in/dp/PRODUCT_ID"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            className="flex-1 h-11 border-blue-200 dark:border-blue-700/50 focus:border-blue-400 dark:focus:border-blue-500 transition-all duration-300 focus:ring-2 ring-blue-300/50 dark:ring-blue-600/30 ring-offset-2"
-            disabled={isLoading}
-          />
-          <Button 
-            type="submit" 
-            className="h-11 px-6 font-medium bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Scraping...' : 'Scrape Product'}
-          </Button>
-        </div>
-        
-        <div className="text-xs text-blue-500/70 dark:text-blue-400/60">
-          Example: https://www.amazon.in/dp/B0C6GJJWF2/
+      <div className="p-8 backdrop-blur-sm">
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <h2 className="text-xl font-medium bg-gradient-to-r from-blue-700 to-blue-500 dark:from-blue-400 dark:to-blue-500 bg-clip-text text-transparent">
+              Amazon Smart TV Scraper
+            </h2>
+            <p className="text-sm text-blue-600/70 dark:text-blue-400/80">
+              Enter an Amazon India Smart TV product URL to extract detailed information
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Input
+              type="url"
+              placeholder="https://www.amazon.in/dp/PRODUCT_ID"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              className="flex-1 h-11 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border-blue-200 dark:border-blue-900/40 focus:border-blue-400 dark:focus:border-blue-500 transition-all duration-300 focus:ring-2 ring-blue-300/50 dark:ring-blue-600/30 ring-offset-2"
+              disabled={isLoading}
+            />
+            <Button 
+              type="submit" 
+              className="h-11 px-6 font-medium bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white transition-all duration-300"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Scraping...' : 'Scrape Product'}
+            </Button>
+          </div>
+          
+          <div className="text-xs text-blue-500/70 dark:text-blue-400/60">
+            Example: https://www.amazon.in/dp/B0C6GJJWF2/
+          </div>
         </div>
       </div>
     </form>
