@@ -31,6 +31,58 @@ export const scrapeAmazonProduct = async (url: string): Promise<ProductData> => 
       ? url.split('/dp/')[1].split('/')[0] 
       : 'unknown';
     
+    // Amazon TV product image sets
+    const amazonTvImageSets = [
+      {
+        images: [
+          "https://m.media-amazon.com/images/I/71LJJrKbezL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71TPda7cwUL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71sBFwWvXVL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/81Y9BUYXcSL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71BFg4FVoLL._SL1500_.jpg"
+        ],
+        manufacturerImages: [
+          "https://m.media-amazon.com/images/I/61Uu3UcDq9L._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71S8U9VzLTL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71vZLIfj5yL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71G0GgYiAEL._SL1500_.jpg"
+        ]
+      },
+      {
+        images: [
+          "https://m.media-amazon.com/images/I/81wxS8abrgL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71dtL3v0JML._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71-ZRQHi7jL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71+JDC8ZtIL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/61uYPrDuTdL._SL1500_.jpg"
+        ],
+        manufacturerImages: [
+          "https://m.media-amazon.com/images/I/81oWxX5t9TL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/713SFH9xNUL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71nrxKAIvHL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71XvK3cBAVL._SL1500_.jpg"
+        ]
+      },
+      {
+        images: [
+          "https://m.media-amazon.com/images/I/81+JXgPUDLL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/81v8mAg9EBL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/81RK8E1+nrL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/818Xqg5LzTL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71j3CDXdHVL._SL1500_.jpg"
+        ],
+        manufacturerImages: [
+          "https://m.media-amazon.com/images/I/71jPnKB4ZNL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71Zg4mT9+SL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71m00yBkwOL._SL1500_.jpg",
+          "https://m.media-amazon.com/images/I/71pV2kZkPqL._SL1500_.jpg"
+        ]
+      }
+    ];
+    
+    // Select a random image set
+    const imageSet = amazonTvImageSets[Math.floor(Math.random() * amazonTvImageSets.length)];
+    
     // Create mock data
     return {
       name: `Smart LED TV 4K Ultra HD - Model ${productId.toUpperCase()}`,
@@ -66,19 +118,8 @@ export const scrapeAmazonProduct = async (url: string): Promise<ProductData> => 
         "Item Weight": "12.5 Kilograms",
         "Warranty": "1 Year Comprehensive Warranty"
       },
-      images: [
-        "https://images.unsplash.com/photo-1577979749830-f1d742b96791?q=80&w=1287&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=1057&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1170&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1558888401-3cc1de77652d?q=80&w=1170&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1461151304267-38535e780c79?q=80&w=1333&auto=format&fit=crop"
-      ],
-      manufacturerImages: [
-        "https://images.unsplash.com/photo-1540829016269-e05815790462?q=80&w=1170&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1170&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?q=80&w=1074&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1494173853739-c21f58b16055?q=80&w=1065&auto=format&fit=crop"
-      ],
+      images: imageSet.images,
+      manufacturerImages: imageSet.manufacturerImages,
       aiReviewSummary: `
         Based on customer reviews, this TV offers excellent picture quality with vibrant colors and sharp 4K resolution. 
         Most users praise the smart features and user-friendly interface, though some mentioned slight lag during streaming. 
